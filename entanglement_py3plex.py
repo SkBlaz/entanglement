@@ -167,7 +167,7 @@ def load_detangler_json(file_path):
 
 
 if __name__ == '__main__':
-    #net = load_detangler_json('/work/Detangler/client/data/cluster1.json')
+    #net = load_detangler_json('./data/cluster1.json')
     net = random_generators.random_multilayer_ER(500,8,0.05,directed=False)
 
 
