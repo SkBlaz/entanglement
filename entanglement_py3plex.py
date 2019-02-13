@@ -1,11 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """Authors: Benjamin Renoust (github.com/renoust)
    Date: 2018/02/13
    Description: Loads a Detangler JSON format graph and compute unweighted entanglement analysis with Py3Plex
 """
-
+import sys
+print(sys.version)
 
 import networkx as nx
 from py3plex.core import multinet
@@ -88,7 +89,7 @@ def compute_blocks(c_matrix):
 
     blocks = []
     indices = []
-    for v,i in v2i.iteritems():
+    for v,i in v2i.items():
         indices.append(i)
         blocks.append(c_matrix[np.ix_(i,i)])
 
@@ -167,8 +168,9 @@ def load_detangler_json(file_path):
 
 
 if __name__ == '__main__':
-    #net = load_detangler_json('./data/cluster1.json')
-    net = random_generators.random_multilayer_ER(500,8,0.05,directed=False)
+    net = load_detangler_json('./data/cluster1.json')
+    #net = random_generators.random_multilayer_ER(500,8,0.5,directed=False)
+    net.visualize_network(show=True)
 
 
     analysis = compute_entanglement_analysis(net)
