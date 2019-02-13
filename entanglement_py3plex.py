@@ -3,7 +3,7 @@
 
 """Authors: Benjamin Renoust (github.com/renoust)
    Date: 2018/02/13
-   Decription: Loads a Detangler JSON format graph and compute unweighted entanglement analysis
+   Description: Loads a Detangler JSON format graph and compute unweighted entanglement analysis with Py3Plex
 """
 
 
@@ -111,7 +111,7 @@ def compute_entanglement(block_matrix):
 
     # computes entanglement homogeneity, cosine distance with the [1...1] vector
     entanglement_homogeneity = 1 - spatial.distance.cosine(gamma_layers, np.ones(nb_layers))
-    # normalizes within the top right quadrant (sorts of flatten the [0-1] value distribution
+    # normalizes within the top right quadrant (sorts of flatten the [0-1] value distribution)
     normalized_entanglement_homogeneity = 1 - math.acos(entanglement_homogeneity)/(math.pi/2)
 
     return [entanglement_intensity, entanglement_homogeneity, normalized_entanglement_homogeneity], gamma_layers
